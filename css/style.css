@@ -1,0 +1,1603 @@
+/* --- CLEANED & CONSOLIDATED PORTFOLIO CSS --- */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --font-heading: 'Poppins', Arial, sans-serif;
+  --font-body: 'Inter', 'Poppins', Arial, sans-serif;
+  --accent-color: #6366f1;
+  --secondary-color: #130e7c;
+  --heading-color: #1F6FEB;
+  --text-color: #18181b;
+  --bg-color: #fff;
+  --card-bg: #f5f5f5;
+  --border-color: #e5e7eb;
+  --light-bg: #f8f9fa;
+  --shadow: 0 4px 24px rgba(99,102,241,0.08);
+}
+body.dark-mode {
+  --accent-color: #6366f1;
+  --secondary-color: #130e7c;
+  --heading-color: #7bb0ff;
+  --text-color: #fff;
+  --bg-color: #18181b;
+  --card-bg: #23232a;
+  --border-color: #444;
+  --light-bg: #181a1b;
+  --shadow: 0 4px 24px rgba(99,102,241,0.18);
+}
+
+html, body {
+  overflow-x: hidden !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-body);
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--heading-color);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.5em;
+}
+section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+@media (max-width: 767px) {
+  section { padding-top: 40px; padding-bottom: 40px; }
+}
+
+/* Navbar */
+.navbar {
+  background: var(--bg-color) !important;
+  min-height: 80px;
+  box-shadow: 0 2px 12px rgba(20,20,40,0.08);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.navbar .nav-link {
+  color: var(--text-color) !important;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem !important;
+  transition: color 0.2s;
+  display: inline-block;
+}
+.navbar .nav-link.active,
+.navbar .nav-link:focus {
+  color: var(--accent-color) !important;
+  background: rgba(99,102,241,0.08);
+}
+.navbar .nav-link:hover {
+  color: var(--accent-color) !important;
+  background: rgba(199,120,221,0.08);
+}
+#theme-toggle, #theme-toggle-mobile {
+  border-radius: 50%;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.25rem;
+  margin-left: 1rem;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(20,20,40,0.08);
+}
+#theme-toggle:focus, #theme-toggle:hover,
+#theme-toggle-mobile:focus, #theme-toggle-mobile:hover {
+  background: var(--accent-color);
+  color: #fff;
+  outline: none;
+}
+
+/* Buttons */
+.btn, .btn-primary, .btn-outline-primary, .contact-btn, button[type="submit"] {
+  background: var(--accent-color) !important;
+  color: #fff !important;
+  border: none !important;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  margin: 0.2rem 0.2rem 0.2rem 0;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn:hover, .btn-primary:hover, .btn-outline-primary:hover, .contact-btn:hover, button[type="submit"]:hover {
+  background: var(--secondary-color) !important;
+  color: #fff !important;
+  box-shadow: 0 0 16px var(--secondary-color), 0 0 8px var(--accent-color);
+}
+
+/* Cards */
+.card, .project-card, .review-card, #extracurricular .card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+  padding: 1.5rem 1.2rem;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.card:hover, .project-card:hover, .review-card:hover, #extracurricular .card:hover {
+  box-shadow: 0 8px 32px rgba(99,102,241,0.15);
+}
+.card .btn-link {
+  color: var(--accent-color) !important;
+  background: transparent !important;
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+  border: none !important;
+}
+.card .btn-link:hover {
+  color: var(--secondary-color) !important;
+  background: transparent !important;
+  text-decoration: underline;
+}
+.card .fa-chevron-down {
+  transition: transform 0.3s;
+}
+.card .btn[aria-expanded="true"] .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+/* Collapse animation */
+.card .collapse {
+  transition: height 0.3s ease;
+}
+
+/* Ensure collapse content is visible when expanded */
+.collapse.show {
+  display: block !important;
+}
+
+.collapse:not(.show) {
+  display: none !important;
+}
+
+/* Bootstrap collapse override for better visibility */
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+
+.card-body.border-top {
+  border-top: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* Project Badges */
+#projects .card .badge {
+  background-color: var(--secondary-color);
+}
+
+/* Forms & Inputs */
+.form-label, label {
+  color: var(--accent-color) !important;
+}
+.form-control, input, textarea, .contact-input, .contact-textarea {
+  background: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  border: 1.5px solid var(--secondary-color) !important;
+  border-radius: 0.7rem;
+  font-size: 1.08rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  transition: border-color 0.2s;
+}
+.form-control:focus, input:focus, textarea:focus, .contact-input:focus, .contact-textarea:focus {
+  border-color: var(--accent-color) !important;
+  outline: none !important;
+  background: #fff !important;
+}
+
+/* Form Validation Styles */
+.was-validated .form-control:valid {
+  border-color: #28a745 !important;
+  background: rgba(40, 167, 69, 0.05) !important;
+}
+
+.was-validated .form-control:invalid {
+  border-color: #dc3545 !important;
+  background: rgba(220, 53, 69, 0.05) !important;
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.valid-feedback {
+  color: #28a745;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Neon effect for dark mode forms */
+body.dark-mode .form-label, body.dark-mode label {
+  color: #6366f1 !important;
+  text-shadow: 0 0 4px #6366f1, 0 0 8px #6366f1;
+}
+body.dark-mode .form-control, body.dark-mode input, body.dark-mode textarea {
+  background: #18181b !important;
+  color: #f3f4f6 !important;
+  border: 2px solid #00eaff !important;
+  box-shadow: 0 0 8px #00eaff;
+}
+body.dark-mode .form-control:focus, body.dark-mode input:focus, body.dark-mode textarea:focus {
+  border-color: #ff00de !important;
+  box-shadow: 0 0 12px #ff00de, 0 0 4px #00eaff;
+  outline: none !important;
+}
+body.dark-mode .contact-btn, body.dark-mode button[type="submit"] {
+  background: #ff00de !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 0 12px #ff00de, 0 0 4px #00eaff;
+  text-shadow: 0 0 4px #fff, 0 0 8px #ff00de;
+}
+body.dark-mode .contact-btn:hover, body.dark-mode button[type="submit"]:hover {
+  background: #39ff14 !important;
+  color: #18181b !important;
+  box-shadow: 0 0 16px #39ff14, 0 0 8px #00eaff;
+}
+body.dark-mode .btn,
+body.dark-mode .btn-primary,
+body.dark-mode .contact-btn,
+body.dark-mode button[type="submit"] {
+  background: var(--accent-color) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 0 12px var(--accent-color), 0 0 4px var(--secondary-color);
+  text-shadow: 0 0 4px #fff, 0 0 8px var(--accent-color);
+}
+body.dark-mode .btn:hover,
+body.dark-mode .btn-primary:hover,
+body.dark-mode .contact-btn:hover,
+body.dark-mode button[type="submit"]:hover {
+  background: var(--secondary-color) !important;
+  color: #fff !important;
+  box-shadow: 0 0 16px var(--secondary-color), 0 0 8px var(--accent-color);
+}
+
+/* Responsive tweaks for cards and navbar */
+@media (max-width: 991px) {
+  .navbar .nav-link { font-size: 1.08rem; }
+  .card, .project-card, .review-card, #extracurricular .card { padding: 1rem 0.5rem; }
+  #hero .carousel-caption,
+  #hero .carousel-item .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 767px) {
+  section { padding-top: 40px; padding-bottom: 40px; }
+  #hero .carousel-caption,
+  #hero .carousel-item .container {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
+
+/* Section backgrounds */
+.bg-light-custom {
+  background-color: var(--light-bg) !important;
+  transition: background-color 0.3s ease;
+}
+body.dark-mode .bg-light-custom {
+  background: #181a1b !important;
+}
+
+/* Carousel and hero section */
+#hero {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+#hero, #hero .carousel-inner, #hero .carousel-item, #hero .carousel-caption, #hero .carousel-item .container {
+  box-sizing: border-box;
+  max-width: 100vw !important;
+}
+#hero .carousel-caption,
+#hero .carousel-item .container {
+  max-width: 100vw !important;
+  width: 100vw !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+#hero .carousel, #hero .carousel-inner, #hero .carousel-item {
+  min-height: 100vh;
+}
+#hero .carousel-item {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+#hero .carousel-item.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-carousel-img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.carousel-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+#hero .carousel-caption, #hero .carousel-item .container {
+  position: relative;
+  z-index: 3;
+}
+#hero .carousel-item h1,
+#hero .carousel-item h2,
+#hero .carousel-item h3,
+#hero .carousel-item h4,
+#hero .carousel-item p {
+  color: #FFFFFF;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+#hero .carousel-item p {
+  color: #f0f0f0;
+  font-size: 1.2rem;
+}
+#hero .carousel-item i {
+  color: var(--accent-color);
+}
+@media (max-width: 767.98px) {
+  #hero .carousel-item, .hero-carousel-img { height: 60vh; }
+  #hero .carousel-caption h1, #hero .carousel-caption h2 { font-size: 1.5rem; }
+  #hero .carousel-caption p, #hero .carousel-caption .lead { font-size: 1rem; }
+  #hero .carousel-caption .btn { font-size: 1rem; padding: 0.5rem 1rem; }
+}
+
+.about-section {
+  background: var(--light-bg);
+  border-radius: 1.2rem;
+  padding: 2.5rem 1.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow);
+}
+body.dark-mode .about-section {
+  background: var(--card-bg);
+}
+
+.about-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.about-section p,
+.about-section li {
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Highlight bullet points in About Me section */
+#about ul {
+  list-style-type: disc;
+  margin-left: 2rem;
+  margin-bottom: 1.2rem;
+  padding-left: 0;
+}
+#about li {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.7rem;
+  line-height: 1.7;
+  list-style-position: inside;
+}
+#about ul li::marker {
+  color: var(--secondary-color);
+  font-size: 1.2em;
+}
+
+/* Contact section */
+.contact-section { padding: 80px 0; background: var(--light-bg); }
+body.dark-mode .contact-section { background: #181a1b; }
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--bg-color);
+  border-radius: 1.2rem;
+  box-shadow: var(--shadow);
+  padding: 2.5rem 1.5rem;
+}
+body.dark-mode .contact-container { background: var(--card-bg); color: #f5f5f5; }
+.contact-heading {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 2.5rem;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+body.dark-mode .contact-heading { color: #1F6FEB; }
+.contact-flex { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+.contact-form { width: 100%; display: flex; flex-direction: column; gap: 1.2rem; }
+.contact-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
+.contact-link { color: var(--accent-color); font-size: 1.15rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+.contact-link:hover { color: var(--secondary-color); }
+body.dark-mode .contact-link { color: #00eaff; }
+body.dark-mode .contact-link:hover { color: #ff00de; }
+@media (max-width: 600px) {
+  .contact-container { padding: 1.2rem 0.5rem 1rem 0.5rem; }
+  .contact-heading { font-size: 1.4rem; }
+}
+
+/* Endorsements/Testimonial Section */
+#endorsements.bg-light-custom { background: var(--light-bg) !important; }
+body.dark-mode #endorsements.bg-light-custom { background: #181a1b !important; }
+#endorsements .card { background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); }
+body.dark-mode #endorsements .card { background: #23232a; color: #f3f4f6; border: 1px solid #444; }
+#endorsements .card-title, #endorsements .card-text { color: var(--text-color); }
+body.dark-mode #endorsements .card-title, body.dark-mode #endorsements .card-text { color: #f3f4f6; }
+
+/* Resume Section */
+#resume .btn-primary { background: var(--accent-color) !important; color: #fff !important; }
+#resume .btn-primary:hover { background: var(--secondary-color) !important; color: #18181b !important; }
+
+/* Utility */
+footer { background: var(--light-bg); color: var(--text-color); transition: background-color 0.3s ease; }
+body.dark-mode footer { background: #181a1b; color: #f3f4f6; }
+
+/* Endorsement Form Specific Styles */
+#endorsements .card {
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+#endorsements .card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+#endorsement-form {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(99,102,241,0.08);
+}
+
+#endorsement-form .form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#endorsement-form .form-control,
+#endorsement-form .form-select {
+  margin-bottom: 1rem;
+}
+
+#endorsement-form .btn-primary {
+  background: var(--accent-color) !important;
+  border: none !important;
+  padding: 0.75rem 2rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+#endorsement-form .btn-primary:hover {
+  background: var(--secondary-color) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(99,102,241,0.3) !important;
+}
+
+#endorsement-form .btn-primary:disabled {
+  opacity: 0.7;
+  transform: none !important;
+}
+
+/* Rating Stars Animation */
+#reviewRating option {
+  padding: 0.5rem;
+}
+
+/* Project Cards Enhanced */
+#projects .card {
+  position: relative;
+  overflow: hidden;
+}
+
+#projects .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(99,102,241,0.1), transparent);
+  transition: left 0.5s;
+}
+
+#projects .card:hover::before {
+  left: 100%;
+}
+
+#projects .card .badge {
+  background: var(--accent-color) !important;
+  color: white !important;
+  font-size: 0.75rem !important;
+  padding: 0.4rem 0.6rem !important;
+  margin: 0.2rem !important;
+  border-radius: 0.5rem !important;
+}
+
+/* Code Snippets Styling */
+pre {
+  background: var(--light-bg) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.5rem !important;
+  padding: 1rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  overflow-x: auto !important;
+}
+
+pre code {
+  background: none !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Extracurricular Activities Enhanced */
+#extracurricular .card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(99,102,241,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#extracurricular .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(99,102,241,0.15), 0 4px 6px -4px rgba(99,102,241,0.10);
+}
+
+#extracurricular .card-title {
+  color: var(--heading-color);
+  font-weight: 700;
+}
+
+#extracurricular .text-primary {
+  color: var(--accent-color) !important;
+}
+
+/* Extracurricular collapse content styles */
+#extracurricular .collapse {
+  transition: height 0.3s ease;
+}
+
+#extracurricular .collapse.show {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#extracurricular .collapse:not(.show) {
+  display: none !important;
+}
+
+#extracurricular .collapse p,
+#extracurricular .collapse ul,
+#extracurricular .collapse strong,
+#extracurricular .collapse h6 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+#extracurricular .collapse ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#extracurricular .collapse li {
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+/* Achievement Icons */
+.text-warning {
+  color: #ffc107 !important;
+}
+
+.text-success {
+  color: #28a745 !important;
+}
+
+.text-info {
+  color: #17a2b8 !important;
+}
+
+/* Mobile Menu Styles */
+#mobile-menu {
+  background: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+#mobile-menu.hidden {
+  display: none !important;
+}
+
+#mobile-menu a {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+#mobile-menu a:hover {
+  background: rgba(99,102,241,0.1);
+  padding-left: 1.5rem;
+}
+
+/* Progress Bars Enhanced */
+.progress {
+  height: 1.5rem;
+  background: var(--light-bg);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+  border-radius: 0.75rem;
+  transition: width 0.8s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Dark Mode Enhancements */
+body.dark-mode #endorsement-form {
+  background: #23232a;
+  border: 1px solid #444;
+}
+
+body.dark-mode pre {
+  background: #1a1a1a !important;
+  color: #e6e6e6 !important;
+  border-color: #444 !important;
+}
+
+body.dark-mode #mobile-menu {
+  background: #18181b;
+  border-top-color: #444;
+}
+
+body.dark-mode #mobile-menu a {
+  border-bottom-color: #444;
+}
+
+body.dark-mode #mobile-menu a:hover {
+  background: rgba(99,102,241,0.2);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  #endorsement-form {
+    padding: 1.5rem;
+  }
+  
+  #projects .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  pre {
+    font-size: 0.8rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Loading Animation for Forms */
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Professional Review Cards Styling */
+.review-card {
+  position: relative;
+  border: none !important;
+  border-radius: 1rem !important;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: var(--card-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.review-card .card-body {
+  position: relative;
+  z-index: 2;
+}
+
+/* Review Avatar */
+.review-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.review-avatar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+  border-radius: 50%;
+}
+
+.avatar-text {
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  position: relative;
+}
+
+/* Review Content */
+.review-content {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.review-content::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  font-size: 3rem;
+  color: var(--accent-color);
+  opacity: 0.2;
+  font-family: serif;
+  line-height: 1;
+}
+
+.review-content p {
+  position: relative;
+  z-index: 1;
+  font-style: italic;
+  color: var(--text-color);
+}
+
+/* Review Footer */
+.review-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  margin-top: auto;
+}
+
+/* Decorative Accent */
+.review-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  opacity: 0.8;
+}
+
+/* Star Rating Styling */
+.review-card .fa-star {
+  font-size: 0.9rem;
+  margin-right: 1px;
+}
+
+.review-card .text-warning {
+  color: #ffc107 !important;
+}
+
+/* Review Card Animation */
+.review-card {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.review-card:nth-child(1) { animation-delay: 0.1s; }
+.review-card:nth-child(2) { animation-delay: 0.2s; }
+.review-card:nth-child(3) { animation-delay: 0.3s; }
+.review-card:nth-child(4) { animation-delay: 0.4s; }
+.review-card:nth-child(5) { animation-delay: 0.5s; }
+.review-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Refresh Button Styling */
+#refresh-reviews {
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background: transparent;
+}
+
+#refresh-reviews:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+#refresh-reviews:disabled {
+  opacity: 0.6;
+  transform: none;
+}
+
+/* Review Form Enhancements */
+#endorsement-form {
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(99, 102, 241, 0.05) 100%);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+#endorsement-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+}
+
+/* Rating Input Styling */
+#reviewRating {
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  border-radius: 0.7rem;
+  padding: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#reviewRating:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+}
+
+#reviewRating option {
+  padding: 0.5rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Dark Mode Enhancements */
+body.dark-mode .review-card {
+  background: #23232a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .review-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .review-content p {
+  color: #f3f4f6;
+  text-shadow: none;
+}
+
+body.dark-mode .review-footer {
+  border-top-color: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .review-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .review-avatar {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .avatar-text {
+    font-size: 1rem;
+  }
+  
+  .review-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Loading Animation for Reviews */
+.reviews-loading {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.reviews-loading .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: var(--accent-color);
+}
+
+/* Empty State Styling */
+.no-reviews-state {
+  text-align: center;
+  padding: 3rem 0;
+  color: var(--text-color);
+}
+
+.no-reviews-state i {
+  font-size: 4rem;
+  color: var(--accent-color);
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+/* Older Reviews Section Styling */
+#older-reviews-section {
+  border-top: 1px solid var(--border-color);
+  margin-top: 2rem;
+}
+
+#older-reviews-section h3 {
+  color: var(--heading-color);
+  font-size: 1.5rem;
+}
+
+#older-reviews-section .btn-outline-secondary {
+  border-color: var(--border-color);
+  color: var(--text-color);
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+#older-reviews-section .btn-outline-secondary:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+#older-reviews-container {
+  transition: all 0.3s ease;
+}
+
+#older-reviews-container .review-card {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+#older-reviews-container .review-card:nth-child(1) { animation-delay: 0.1s; }
+#older-reviews-container .review-card:nth-child(2) { animation-delay: 0.2s; }
+#older-reviews-container .review-card:nth-child(3) { animation-delay: 0.3s; }
+#older-reviews-container .review-card:nth-child(4) { animation-delay: 0.4s; }
+#older-reviews-container .review-card:nth-child(5) { animation-delay: 0.5s; }
+#older-reviews-container .review-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Dark Mode for Older Reviews */
+body.dark-mode #older-reviews-section {
+  border-top-color: #444;
+}
+
+body.dark-mode #older-reviews-section .btn-outline-secondary {
+  border-color: #444;
+  color: #f3f4f6;
+}
+
+body.dark-mode #older-reviews-section .btn-outline-secondary:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+}
+
+/* Responsive Design for Older Reviews */
+@media (max-width: 768px) {
+  #older-reviews-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  #older-reviews-section .btn-outline-secondary {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Project Cards Styling */
+.project-card {
+  position: relative;
+  border: none !important;
+  border-radius: 1rem !important;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: var(--card-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-card .card-body {
+  position: relative;
+  z-index: 2;
+}
+
+/* Project Icon */
+.project-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+  border-radius: 50%;
+}
+
+.project-icon i {
+  font-size: 1.2rem;
+  z-index: 1;
+  position: relative;
+}
+
+/* Project Header */
+.project-header h5 {
+  color: var(--heading-color);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+  font-size: 1.35rem;
+}
+body.dark-mode .project-header h5 {
+  color: var(--accent-color);
+  text-shadow: none;
+}
+
+/* Project Description */
+.project-description p {
+  color: var(--text-color);
+  line-height: 1.8;
+  font-size: 1.08rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+body.dark-mode .project-description p {
+  color: #eaf1fb !important;
+  font-weight: 500;
+  text-shadow: none;
+}
+
+/* Project Tags */
+.project-tags .badge {
+  background: var(--accent-color) !important;
+  color: white !important;
+  font-size: 0.75rem !important;
+  padding: 0.4rem 0.6rem !important;
+  margin: 0.2rem !important;
+  border-radius: 0.5rem !important;
+  font-weight: 500;
+}
+
+/* Project Toggle Button */
+.project-toggle {
+  color: var(--accent-color) !important;
+  background: transparent !important;
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+  border: none !important;
+}
+
+.project-toggle:hover {
+  color: var(--secondary-color) !important;
+  background: transparent !important;
+  text-decoration: underline;
+}
+
+.project-toggle .fa-chevron-down,
+.project-toggle .fa-chevron-up {
+  transition: transform 0.3s;
+}
+
+.project-toggle[aria-expanded="true"] .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+/* Project Details Section */
+.project-details {
+  color: var(--text-color);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+body.dark-mode .project-details {
+  color: #fff;
+  text-shadow: none;
+}
+
+.project-details h6 {
+  color: var(--heading-color);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.project-details ul {
+  margin-bottom: 1.5rem;
+}
+
+.project-details li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.project-details strong {
+  color: var(--accent-color);
+}
+
+/* Code Snippets in Project Details */
+.project-details pre {
+  background: #1a1a1a !important;
+  color: #fff !important;
+  border: 1px solid #333 !important;
+  border-radius: 0.5rem !important;
+  padding: 1rem !important;
+  font-size: 0.8rem !important;
+  line-height: 1.4 !important;
+  overflow-x: auto !important;
+  margin-bottom: 1rem !important;
+}
+
+.project-details pre code {
+  background: none !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Project Links */
+.project-links {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.project-links .btn {
+  border-radius: 0.5rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.project-links .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Project Accent */
+.project-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  opacity: 0.8;
+}
+
+/* Project Card Animation */
+.project-card {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Collapse Animation */
+.project-card .collapse {
+  transition: height 0.3s ease;
+}
+
+/* Ensure project collapse content is visible */
+.project-card .collapse.show {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.project-card .collapse:not(.show) {
+  display: none !important;
+}
+
+.project-card .card-body.border-top {
+  border-top: 1px solid var(--border-color);
+  background: var(--light-bg);
+  color: var(--text-color);
+  padding: 1.5rem !important;
+  margin-top: 0 !important;
+}
+
+/* Dark Mode Enhancements */
+body.dark-mode .project-card {
+  background: #23232a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .project-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .project-card .card-body.border-top {
+  background: #1a1a1a;
+  border-top-color: #444;
+}
+
+body.dark-mode .project-details pre {
+  background: #000 !important;
+  color: #e6e6e6 !important;
+  border-color: #333 !important;
+  text-shadow: none;
+}
+
+body.dark-mode .project-links {
+  border-top-color: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .project-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .project-icon i {
+    font-size: 1.1rem;
+  }
+  
+  .project-description p {
+    font-size: 0.9rem;
+  }
+  
+  .project-tags .badge {
+    font-size: 0.7rem !important;
+    padding: 0.3rem 0.5rem !important;
+  }
+  
+  .project-details pre {
+    font-size: 0.75rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Hover Effects */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(99,102,241,0.1), transparent);
+  transition: left 0.5s;
+}
+
+.project-card:hover::before {
+  left: 100%;
+}
+
+body.dark-mode .project-header h5,
+body.dark-mode .project-details h6 {
+  color: #6366f1 !important;
+  text-shadow: none;
+}
+body.dark-mode .project-tags .badge,
+body.dark-mode .project-links .btn,
+body.dark-mode .btn,
+body.dark-mode .btn-primary {
+  background: var(--accent-color) !important;
+  color: #fff !important;
+}
+
+/* Section Layout Tweaks */
+section, .about-section, .contact-section, #projects, #endorsements, #extracurricular {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+  padding: 2.5rem 1.5rem;
+  background: var(--bg-color);
+  border-radius: 1.2rem;
+  box-shadow: var(--shadow);
+}
+body.dark-mode section, body.dark-mode .about-section, body.dark-mode .contact-section, body.dark-mode #projects, body.dark-mode #endorsements, body.dark-mode #extracurricular {
+  background: var(--card-bg);
+}
+
+/* Font Visibility Fixes for Dynamic Content */
+.project-description p, .project-details, .review-content p, #extracurricular .card, .about-section, .contact-section, .contact-container, .card-body, .collapse.show, .collapse, .project-card .card-body.border-top {
+  color: var(--text-color) !important;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-shadow: none;
+}
+body.dark-mode .project-description p, body.dark-mode .project-details, body.dark-mode .review-content p, body.dark-mode #extracurricular .card, body.dark-mode .about-section, body.dark-mode .contact-section, body.dark-mode .contact-container, body.dark-mode .card-body, body.dark-mode .collapse.show, body.dark-mode .collapse, body.dark-mode .project-card .card-body.border-top {
+  color: var(--text-color) !important;
+  background: transparent;
+  text-shadow: none;
+}
+
+/* Headings in Cards */
+.project-header h5, .review-card .card-title, #extracurricular .card-title {
+  font-family: var(--font-heading);
+  color: var(--heading-color);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+body.dark-mode .project-header h5, body.dark-mode .review-card .card-title, body.dark-mode #extracurricular .card-title {
+  color: var(--accent-color);
+  text-shadow: none;
+}
+
+/* Button and Badge Consistency */
+.btn, .btn-primary, .btn-outline-primary, .contact-btn, button[type="submit"], .project-tags .badge, .project-links .btn {
+  background: var(--accent-color) !important;
+  color: #fff !important;
+  border: none !important;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  margin: 0.2rem 0.2rem 0.2rem 0;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  font-size: 1rem;
+}
+.btn:hover, .btn-primary:hover, .btn-outline-primary:hover, .contact-btn:hover, button[type="submit"]:hover, .project-links .btn:hover {
+  background: var(--secondary-color) !important;
+  color: #fff !important;
+  box-shadow: 0 0 16px var(--secondary-color), 0 0 8px var(--accent-color);
+}
+
+/* Responsive Typography & Layout */
+@media (max-width: 991px) {
+  section, .about-section, .contact-section, #projects, #endorsements, #extracurricular {
+    padding: 1.5rem 0.5rem;
+  }
+  .card, .project-card, .review-card, #extracurricular .card {
+    padding: 1rem 0.5rem;
+  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+}
+@media (max-width: 767px) {
+  section, .about-section, .contact-section, #projects, #endorsements, #extracurricular {
+    padding: 1rem 0.2rem;
+    border-radius: 0.7rem;
+  }
+  .card, .project-card, .review-card, #extracurricular .card {
+    padding: 0.7rem 0.2rem;
+    border-radius: 0.7rem;
+  }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.1rem; }
+  h3 { font-size: 1rem; }
+  .btn, .btn-primary, .btn-outline-primary, .contact-btn, button[type="submit"], .project-links .btn {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Layout Tweaks for Professional Look */
+section > *, .about-section > *, .contact-section > *, #projects > *, #endorsements > *, #extracurricular > * {
+  margin-bottom: 1.2rem;
+}
+.card:last-child, .project-card:last-child, .review-card:last-child, #extracurricular .card:last-child {
+  margin-bottom: 0;
+}
+
+/* Alignment and Spacing for Cards/Buttons */
+.project-tags, .project-links, .contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.project-links {
+  margin-top: 1.2rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* About Section Tweaks */
+.about-section {
+  background: var(--light-bg);
+  border-radius: 1.2rem;
+  padding: 2.5rem 1.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow);
+}
+body.dark-mode .about-section {
+  background: var(--card-bg);
+}
+
+/* Contact Section Tweaks */
+.contact-section, .contact-container {
+  background: var(--light-bg);
+  border-radius: 1.2rem;
+  box-shadow: var(--shadow);
+  padding: 2.5rem 1.5rem;
+}
+body.dark-mode .contact-section, body.dark-mode .contact-container {
+  background: var(--card-bg);
+}
+
+/* Remove Card Animations for Simplicity */
+.project-card, .review-card, #older-reviews-container .review-card {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+.project-card:nth-child(1), .project-card:nth-child(2), .project-card:nth-child(3),
+.review-card:nth-child(1), .review-card:nth-child(2), .review-card:nth-child(3), .review-card:nth-child(4), .review-card:nth-child(5), .review-card:nth-child(6),
+#older-reviews-container .review-card:nth-child(1), #older-reviews-container .review-card:nth-child(2), #older-reviews-container .review-card:nth-child(3), #older-reviews-container .review-card:nth-child(4), #older-reviews-container .review-card:nth-child(5), #older-reviews-container .review-card:nth-child(6) {
+  animation-delay: 0s !important;
+}
+
+/* Ensure all backgrounds in dark mode use the correct variable */
+body.dark-mode .card,
+body.dark-mode .project-card,
+body.dark-mode .review-card,
+body.dark-mode #extracurricular .card,
+body.dark-mode .about-section,
+body.dark-mode .contact-section,
+body.dark-mode .contact-container,
+body.dark-mode .card-body,
+body.dark-mode .collapse.show,
+body.dark-mode .collapse,
+body.dark-mode .project-card .card-body.border-top {
+  background: var(--card-bg) !important;
+}
+
+/* Bullet points for expanded sections in projects and extracurriculars */
+.project-details ul,
+.project-details .collapse ul,
+.project-card .collapse ul,
+#extracurricular .collapse ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+.project-details li,
+.project-details .collapse li,
+.project-card .collapse li,
+#extracurricular .collapse li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  list-style-position: inside;
+}
+
+/* Responsive fix for hero section content */
+@media (max-width: 991px) {
+  #hero .carousel-caption,
+  #hero .carousel-item .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 767px) {
+  #hero .carousel-caption,
+  #hero .carousel-item .container {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
