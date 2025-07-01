@@ -443,7 +443,7 @@ body.dark-mode .contact-container { background: var(--card-bg); color: #f5f5f5; 
   margin-bottom: 2.5rem;
   font-family: 'Poppins', Arial, sans-serif;
 }
-body.dark-mode .contact-heading { color: #39ff14; }
+body.dark-mode .contact-heading { color: #1F6FEB; }
 .contact-flex { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
 .contact-form { width: 100%; display: flex; flex-direction: column; gap: 1.2rem; }
 .contact-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
